@@ -11,4 +11,14 @@ function component() {
   return element;
 }
 
+function image() {
+  const image = document.createElement('img');
+
+  image.src = nyanCat;
+  image.setAttribute('alt', 'Nyan cat hurtling gleefully through space');
+
+  return image;
+}
+
 document.body.appendChild(component());
+document.body.appendChild(image());
