@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './style.css';
-import nyanCat from './nyan.gif';
+import NyanCat from './nyan.gif';
 
 function component() {
   const element = document.createElement('div');
@@ -14,7 +14,7 @@ function component() {
 function image() {
   const image = document.createElement('img');
 
-  image.src = nyanCat;
+  image.setAttribute('src', NyanCat);
   image.setAttribute('alt', 'Nyan cat hurtling gleefully through space');
 
   return image;
