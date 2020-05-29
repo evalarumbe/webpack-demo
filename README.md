@@ -1,3 +1,5 @@
 # Webpack demo
 
-[Getting Started with Webpack](https://webpack.js.org/guides/getting-started/) - official docs
+Branches are named after sections of the docs:
+
+- `start`: [Getting Started](https://webpack.js.org/guides/getting-started/)
