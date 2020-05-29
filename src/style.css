@@ -1,3 +1,5 @@
 .hello {
   color: #c00;
+  background-image: url('http://localhost:5501/webpack-demo/dist/2acf3f564495a90c24cbcdd6d006e2ac.gif');
+  background-position: left center;
 }
