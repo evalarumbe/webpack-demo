@@ -10,7 +10,7 @@ module.exports = {
   },
   devtool: 'inline-source-map', // not recommended for production
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}), // without this arg, the generated HTML file would be deleted on each automatic (watched) rebuild
     new HtmlWebpackPlugin({
       title: 'Output Management',
     }),
