@@ -1,14 +1,14 @@
 {
   "name": "webpack-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Running through examples from the webpack docs",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eva Larumbe",
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
@@ -21,7 +21,5 @@
     "webpack-cli": "^3.3.11",
     "xml-loader": "^1.2.1"
   },
-  "dependencies": {
-    "lodash": "^4.17.15"
-  }
+  "dependencies": {}
 }
