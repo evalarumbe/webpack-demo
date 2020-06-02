@@ -15,12 +15,15 @@ function component() {
   return element;
 }
 
-document.body.appendChild(component());
+let elementToReload = component(); // original printMe
+document.body.appendChild(elementToReload);
 
 // Hot Module Reloader
 if (module.hot) {
   module.hot.accept('./print.js', function() {
     console.log('Accepting the updated printMe module!');
-    printMe();
+    document.body.removeChild(elementToReload);
+    elementToReload = component(); // re-render the component to use the updated printMe
+    document.body.appendChild(elementToReload);
   });
 }
