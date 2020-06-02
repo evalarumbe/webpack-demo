@@ -10,7 +10,8 @@ module.exports = {
   },
   devtool: 'inline-source-map', // not recommended for production
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(__dirname, './dist'),
+    writeToDisk: true,
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}), // without this arg, the generated HTML file would be deleted on each automatic (watched) rebuild
