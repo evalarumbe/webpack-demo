@@ -11,6 +11,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, './dist'),
     writeToDisk: true,
+    hot: true,
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}), // without this arg, the generated HTML file would be deleted on each automatic (watched) rebuild
