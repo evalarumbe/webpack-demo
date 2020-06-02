@@ -9,6 +9,9 @@ module.exports = {
     print: './src/print.js',
   },
   devtool: 'inline-source-map', // not recommended for production
+  devServer: {
+    contentBase: './dist',
+  },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}), // without this arg, the generated HTML file would be deleted on each automatic (watched) rebuild
     new HtmlWebpackPlugin({
