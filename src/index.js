@@ -1,16 +1,13 @@
-import _ from 'lodash';
-import printMe from './print.js';
+import { cube } from './math.js';
+// we're not importing square from math.js so it's dead code that should be shook
 
 function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+  const element = document.createElement('pre');
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  btn.innerHTML = 'Click me and check the console!';
-  btn.addEventListener('click', printMe, false);
-
-  element.appendChild(btn);
+  element.innerHTML = [
+    'Hello Webpack!',
+    '5 cubed is equal to ' + cube(5)
+  ].join('\n\n');
 
   return element;
 }
