@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import printMe from './print.js';
+import printMe from './display.js';
 
 function component() {
   const element = document.createElement('div');
@@ -16,3 +16,4 @@ function component() {
 }
 
 document.body.appendChild(component());
+console.log('blorpera');

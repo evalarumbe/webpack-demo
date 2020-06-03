@@ -4,15 +4,25 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  devServer: {
+    writeToDisk: true,
+  },
   entry: {
     app: './src/index.js',
-    print: './src/print.js',
+    display: './src/display.js',
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
+    new CleanWebpackPlugin({
+      // cleanStaleWebpackAssets: false, // TODO: what does this do?
+      cleanOnceBeforeBuildPatterns: [],
+      cleanAfterEveryBuildPatterns: [
+        '*',
+        '!index.html',
+      ],
     }),
+    // new HtmlWebpackPlugin({
+    //   title: 'Output Management',
+    // }),
   ],
   output: {
     filename: '[name].bundle.js',
