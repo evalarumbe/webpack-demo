@@ -1,5 +1,11 @@
+// external
 import _ from 'lodash';
+
+// local
 import printMe from './print.js';
+
+// styles
+import './styles.css';
 
 function component() {
   const element = document.createElement('div');
@@ -27,3 +33,6 @@ if (module.hot) {
     document.body.appendChild(elementToReload);
   });
 }
+
+// If HMR is working, this should only run once when we start webpack-dev-server
+window.addEventListener('load', function() { console.log(`LOADED! ${new Date()}`) });

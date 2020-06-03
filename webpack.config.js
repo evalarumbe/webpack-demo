@@ -4,13 +4,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    app: './src/index.js',
-  },
   devtool: 'inline-source-map', // not recommended for production
   devServer: {
     writeToDisk: true,
     hot: true,
+  },
+  entry: {
+    app: './src/index.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      }
+    ],
   },
   plugins: [
     new CleanWebpackPlugin({
