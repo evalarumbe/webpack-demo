@@ -13,7 +13,17 @@ module.exports = {
     hot: true,
   },
   plugins: [
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}), // without this arg, the generated HTML file would be deleted on each automatic (watched) rebuild
+    new CleanWebpackPlugin({
+      // Recommendation to self: Use both cleanOnceBeforeBuildPatterns and cleanAfterEveryBuildPatterns with the same values, so all builds (first and watched) behave consistently
+      cleanOnceBeforeBuildPatterns: [ // on first build, delete everything (*) except (!) html (*.html)
+        '*', // must have a positive pattern here because a negative alone doesn't work
+        '!*.html', // negative means "remove this from matching results of first pattern"
+      ],
+      cleanAfterEveryBuildPatterns: [ // on watched builds, delete everything except html
+        '*',
+        '!*.html',
+      ],
+    }),
     new HtmlWebpackPlugin({
       title: 'Output Management',
     }),
