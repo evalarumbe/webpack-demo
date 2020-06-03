@@ -16,4 +16,4 @@ function component() {
 }
 
 document.body.appendChild(component());
-console.log('blorpera');
+console.log('YUP');
