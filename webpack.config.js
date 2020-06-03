@@ -9,7 +9,6 @@ module.exports = {
   },
   devtool: 'inline-source-map', // not recommended for production
   devServer: {
-    contentBase: path.join(__dirname, './dist'),
     writeToDisk: true,
     hot: true,
   },
