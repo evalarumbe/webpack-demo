@@ -3,12 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'inline-source-map', // not recommended for production
-  devServer: {
-    writeToDisk: true,
-    hot: true,
-  },
   entry: {
     app: './src/index.js',
   },
