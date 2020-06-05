@@ -27,7 +27,7 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      title: 'Webpack Demo',
     }),
   ],
   output: {
