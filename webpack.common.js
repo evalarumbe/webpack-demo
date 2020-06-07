@@ -4,8 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
-    app: './src/index.js',
+    index: './index.js',
+    another: './another-module.js',
+    // This 'descriptor syntax' is a Webpack v5 feature. It's in the docs but causes build errors here.
+    // shared: ['lodash'],
+    // index: { import: './index.js', dependOn: 'shared' },
+    // another: { import: './another-module.js', dependOn: 'shared' },
   },
   module: {
     rules: [
@@ -35,5 +41,10 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
   },
 };
