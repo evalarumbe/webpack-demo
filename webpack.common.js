@@ -41,14 +41,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Webpack Demo',
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css", // hashing is content-based for extracted CSS
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
     })
   ],
   output: {
-    chunkFilename: '[name].bundle.js',
-    filename: '[name].bundle.js',
+    chunkFilename: '[name].[chunkhash].js', // generated chunks
+    filename: '[name].[chunkhash].js', // entry files that map directly to output files
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
