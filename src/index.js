@@ -3,15 +3,33 @@ import _ from 'lodash';
 
 // local
 import printMe from './print.js';
+import pets from './pets.js';
+
+// template
+import petsTemplate from './hbs-templates/petsTemplate.hbs';
 
 // styles
 import './styles.css';
 
 function component() {
+  // Grab a template
   const element = document.createElement('div');
+
+  console.log(pets);
+
+  // const petsHTML = '<h2>Blorp</h2>';
+  // const petsHTML = pets(petsTemplate);
+  const petsHTML = pets(petsTemplate, element);
+
+  // getPosts().then(retrievedPosts => petsTemplate(retrievedPosts));
+  // or shorthand: then calls the petsTemplate callback with JSON data from getPosts 
+  element.innerHTML = petsHTML;
+
+
+  // Make a button
   const btn = document.createElement('button');
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
   btn.innerHTML = 'Click me and check the console!';
   btn.addEventListener('click', printMe, false);

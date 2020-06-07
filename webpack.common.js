@@ -17,12 +17,22 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.hbs$/,
+        use: {
+          loader: 'handlebars-loader',
+          options: {
+            helperDirs: path.resolve(__dirname, 'src', 'hbs-templates', 'helpers'),
+            // helperDirs: path.resolve(__dirname, './src/hbs-templates/helpers'),
+          }
+        },
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.bundle\.js$/,
-        use: 'bundle-loader'
+        use: 'bundle-loader',
       }
     ],
   },
@@ -44,9 +54,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css", // hashing is content-based for extracted CSS
     }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-    })
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'static',
+    // })
   ],
   output: {
     chunkFilename: '[name].[chunkhash].js', // generated chunks
