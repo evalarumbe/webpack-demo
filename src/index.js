@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 // local
 import printMe from './print.js';
-import pets from './pets.js';
+import { getPets } from './pets.js';
 
 // template
 import petsTemplate from './hbs-templates/petsTemplate.hbs';
@@ -11,20 +11,11 @@ import petsTemplate from './hbs-templates/petsTemplate.hbs';
 // styles
 import './styles.css';
 
-function component() {
-  // Grab a template
+getPets().then(renderView);
+
+function renderView(petsData) {
   const element = document.createElement('div');
-
-  console.log(pets);
-
-  // const petsHTML = '<h2>Blorp</h2>';
-  // const petsHTML = pets(petsTemplate);
-  const petsHTML = pets(petsTemplate, element);
-
-  // getPosts().then(retrievedPosts => petsTemplate(retrievedPosts));
-  // or shorthand: then calls the petsTemplate callback with JSON data from getPosts 
-  element.innerHTML = petsHTML;
-
+  element.innerHTML = petsTemplate(petsData);
 
   // Make a button
   const btn = document.createElement('button');
@@ -39,7 +30,7 @@ function component() {
   return element;
 }
 
-let elementToReload = component(); // original printMe
+let elementToReload = renderView(); // original printMe
 document.body.appendChild(elementToReload);
 
 // Hot Module Reloader
@@ -47,7 +38,7 @@ if (module.hot) {
   module.hot.accept('./print.js', function() {
     console.log('Accepting the updated printMe module!');
     document.body.removeChild(elementToReload);
-    elementToReload = component(); // re-render the component to use the updated printMe
+    elementToReload = renderView(); // re-render the component to use the updated printMe
     document.body.appendChild(elementToReload);
   });
 }
