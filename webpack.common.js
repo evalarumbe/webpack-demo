@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HandlebarsPlugin = require('handlebars-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -50,6 +51,11 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Webpack Demo',
+    }),
+    new HandlebarsPlugin({
+      helpers: {
+        calculateAge: path.resolve(__dirname, 'src', 'hbs-templates', 'helpers', 'calculateAge.js'),
+      },
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css", // hashing is content-based for extracted CSS
