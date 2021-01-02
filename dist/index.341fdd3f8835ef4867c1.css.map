@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./styles.css"],"names":[],"mappings":"AAAA;AACA;AACA;;AAEA;AACA;AACA;AACA,C","file":"index.341fdd3f8835ef4867c1.css","sourcesContent":["body {\n  background-color: lightblue;\n}\n\nbutton {\n  margin-left: 1em;\n  height: 4em;\n}"],"sourceRoot":""}
