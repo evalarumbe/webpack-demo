@@ -8,7 +8,6 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     index: './index.js',
-    another: './another-module.js',
     // This 'descriptor syntax' is a Webpack v5 feature. It's in the docs but causes build errors here.
     // shared: ['lodash'],
     // index: { import: './index.js', dependOn: 'shared' },
@@ -52,11 +51,5 @@ module.exports = {
     chunkFilename: '[name].[hash].js', // generated chunks
     filename: '[name].[hash].js', // entry files that map directly to output files
     path: path.resolve(__dirname, 'dist'),
-  },
-  // SplitChunksPlugin
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    }
   },
 };
