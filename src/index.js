@@ -1,16 +1,20 @@
-import _ from 'lodash';
+import { cube } from './math.js';
 
 // styles
 import './styles.css';
 
 function component() {
-  const element = document.createElement('div');
+  const element = document.createElement('pre');
   
   const button = document.createElement('button');
   const br = document.createElement('br');
   button.innerHTML = 'Click me and look at the console!';
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.innerHTML = [
+    'Hello webpack!',
+    '5 cubed is equal to ' + cube(5)
+  ].join('\n');
+
   element.appendChild(br);
   element.appendChild(button);
   
