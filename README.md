@@ -1,7 +1,5 @@
 # Webpack demo
 
-Branches are named after sections of the docs:
+Branches are named after sections of the Webpack docs.
 
-- `start`: [Getting Started](https://webpack.js.org/guides/getting-started/)
-
-- `assets`: [Asset Management](https://webpack.js.org/guides/asset-management/)
+This repo is very experimental and not reliably maintained.
